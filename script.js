@@ -4,30 +4,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const fullscreenButton = document.getElementById("fullscreen-button");
 
+    const inputText = document.getElementById("inputText");
     const inputColor = document.getElementById("inputColor");
-    let currentColor = "FF0000";
+    let currentColor = "ff0000";
 
     const inputError = document.getElementById("inputError");
+
+    const video = document.getElementById("video");
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
     }
 
-    inputColor.addEventListener("input", () => {
-        if (inputColor.value.includes("#")) {
-            inputColor.value = inputColor.value.replace("#", "");
+    inputText.addEventListener("input", () => {
+        if (inputText.value.includes("#")) {
+            inputText.value = inputText.value.replace("#", "");
 
-            currentColor = inputColor.value;
+            currentColor = inputText.value;
+            inputColor.value = inputText.value;
             drawColor();
-        } else if (inputColor.value.length > 6) {
-            inputColor.value = inputColor.value.slice(0, 6);
+        } else if (inputText.value.length > 6) {
+            inputText.value = inputText.value.slice(0, 6);
 
-            currentColor = inputColor.value;
+            currentColor = inputText.value;
+            inputColor.value = inputText.value;
             drawColor();
         } else {
-            currentColor = inputColor.value;
+            currentColor = inputText.value;
+            inputColor.value = inputText.value;
             drawColor();
         }
+    });
+
+    inputColor.addEventListener("input", () => {
+        inputText.value = inputColor.value.replace("#", "");
+        currentColor = inputText.value;
+        drawColor();
     });
 
     function drawColor() {
@@ -35,6 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+            const stream = canvas.captureStream(30);
+            video.srcObject = stream;
+            video.play();
+
             inputError.textContent = "";
         } else {
             inputError.textContent = "Sorry! Doesn't seem like a real 6-digit hex code.";
@@ -42,20 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        canvas.requestFullscreen();
+        video.requestFullscreen();
     });
 
     document.addEventListener("fullscreenchange", () => {
         if (document.fullscreenElement) {
-            canvas.classList.remove("w-full", "h-full");
-            canvas.classList.add("w-screen", "h-screen");
-            canvas.classList.remove("border-4");
-            drawColor();
+            video.classList.remove("h-1/2");
+            video.classList.add("h-full");
         } else {
-            canvas.classList.remove("w-screen", "h-screen");
-            canvas.classList.add("w-full", "h-full");
-            canvas.classList.add("border-4");
-            drawColor();
+            video.classList.remove("h-full");
+            video.classList.add("h-1/2");
         }
     })
 
