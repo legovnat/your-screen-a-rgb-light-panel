@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputError = document.getElementById("inputError");
 
     const video = document.getElementById("video");
-    const divVideo = document.getElementById("divVideo");
+    /// const divVideo = document.getElementById("divVideo");
 
     /// let globalInteraction = false;
 
@@ -22,13 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     inputText.addEventListener("input", () => {
         if (inputText.value.includes("#")) {
             inputText.value = inputText.value.replace("#", "");
-
             currentColor = inputText.value;
             inputColor.value = "#" + inputText.value;
             drawColor();
         } else if (inputText.value.length > 6) {
             inputText.value = inputText.value.slice(0, 6);
-
             currentColor = inputText.value;
             inputColor.value = "#" + inputText.value;
             drawColor();
@@ -54,14 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function drawColor() {
         if (isHexGood(currentColor)) {
-            /* ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            const stream = canvas.captureStream(30);
+            /* const stream = canvas.captureStream(30);
             video.srcObject = stream;
             video.play(); */
-            divVideo.style.backgroundColor = "#" + currentColor;
+            /// divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
         } else {
