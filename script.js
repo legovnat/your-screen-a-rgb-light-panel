@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }); */
 
 
-    inputColor.addEventListener("input", () => {
+    inputColor.addEventListener("click", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
         userHasInteracted(drawColor);
@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            /* const stream = canvas.captureStream(30);
+            const stream = canvas.captureStream(30);
             video.srcObject = stream;
-            video.play(); */
+            video.play();
             divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
@@ -72,7 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        divVideo.requestFullscreen();
+        if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
+        } else if (video.requestFullscreen) {
+            video.requestFullscreen();
+        }
     });
 
     document.addEventListener("fullscreenchange", () => {
