@@ -87,10 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
             playVideo();
         } else if (video.webkitEnterFullscreen) {
             video.webkitEnterFullscreen();
-            playVideo();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#" + currentColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+            const stream = canvas.captureStream(30);
+            video.srcObject = stream;
+            video.play();
         }
-        video.webkitEnterFullscreen();
-            playVideo();
     });
 
     document.addEventListener("fullscreenchange", () => {
