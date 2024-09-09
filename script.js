@@ -39,16 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* inputColor.addEventListener("click", () => {
-        if (inputColor.value) {
-            inputText.value = inputColor.value.replace("#", "");
-            currentColor = inputColor.value.replace("#", "");
-            drawColor();
-        }
-    }); */
-
-
     inputColor.addEventListener("click", () => {
+        inputText.value = inputColor.value.replace("#", "");
+        currentColor = inputColor.value.replace("#", "");
+        userHasInteracted(drawColor);
+    });
+
+
+    inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
         userHasInteracted(drawColor);
