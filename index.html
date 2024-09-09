@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
 </head>
 
-<body class="flex flex-col m-4 h-svh justify-between bg-gradient-to-b from-zinc-950 to-zinc-900">
+<body class="flex flex-col m-4 h-svh w-screen justify-between bg-gradient-to-b from-zinc-950 to-zinc-900">
     <div class="flex flex-col space-y-4">
         <h1 class="text-4xl md:text-xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
                 panel </span> <span class="text-4xl">&#127909;</span></h1>
         <div class="hidden">
             <canvas id="canvas"></canvas>
         </div>
-        <video id="video" muted playsinline class="flex w-full h-1/2"></video>
+        <video id="video" muted playsinline class="hidden"></video>
+        <div id="divVideo" class="flex w-[200px] h-[200px]" style="background-color: #ff0000"></div>
         <div class="flex flex-row space-x-4 w-full content-center">
             <label for="inputText" class="text-zinc-100 text-2xl">Pick a color:</label>
             <div class="flex flex-col space-y-1">
-                <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7" class="rounded-md p-1">
+                <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7" class="bg-transparent border-2 border-rose-400 text-zinc-100 rounded-md p-1">
                 <p id="inputError" class="text-sm text-rose-400"></p>
             </div>
-            <input id="inputColor" type="color" value="#ff0000" class="rounded-full w-[2rem] h-[2rem]">
+            <input id="inputColor" type="color" value="#ff0000" class="bg-transparent border-2 border-rose-400 p-0.5 m-0.5 rounded-md w-[2rem] h-[2rem]">
         </div>
         <button id="fullscreen-button"
             class="text-4xl md:text-xl shadow-lg rounded-md p-4 md:p-2 text-zinc-100 bg-rose-700 hover:bg-rose-900 transition duration-150 ease-in-out">
@@ -31,6 +32,6 @@
                 data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff"
                 data-coffee-color="#FFDD00"></script>
         </div>
-        <p class="flex justify-center text-zinc-300">Version 0.2.1</p>
+        <p class="flex justify-center text-zinc-300">Version 0.2.2</p>
     </div>
 </body>

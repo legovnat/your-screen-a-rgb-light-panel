@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputError = document.getElementById("inputError");
 
     const video = document.getElementById("video");
+    const divVideo = document.getElementById("divVideo");
+
+    let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -21,25 +24,34 @@ document.addEventListener("DOMContentLoaded", () => {
             inputText.value = inputText.value.replace("#", "");
 
             currentColor = inputText.value;
-            inputColor.value = inputText.value;
+            inputColor.value = "#" + inputText.value;
             drawColor();
         } else if (inputText.value.length > 6) {
             inputText.value = inputText.value.slice(0, 6);
 
             currentColor = inputText.value;
-            inputColor.value = inputText.value;
+            inputColor.value = "#" + inputText.value;
             drawColor();
         } else {
             currentColor = inputText.value;
-            inputColor.value = inputText.value;
+            inputColor.value = "#" + inputText.value;
             drawColor();
         }
     });
 
+    /* inputColor.addEventListener("click", () => {
+        if (inputColor.value) {
+            inputText.value = inputColor.value.replace("#", "");
+            currentColor = inputColor.value.replace("#", "");
+            drawColor();
+        }
+    }); */
+
+
     inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
-        currentColor = inputText.value;
-        drawColor();
+        currentColor = inputColor.value.replace("#", "");
+        userHasInteracted(drawColor);
     });
 
     function drawColor() {
@@ -48,9 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            const stream = canvas.captureStream(30);
+            /* const stream = canvas.captureStream(30);
             video.srcObject = stream;
-            video.play();
+            video.play(); */
+            divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
         } else {
@@ -59,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        video.requestFullscreen();
+        divVideo.requestFullscreen();
     });
 
     document.addEventListener("fullscreenchange", () => {
@@ -71,6 +84,23 @@ document.addEventListener("DOMContentLoaded", () => {
             video.classList.add("h-1/2");
         }
     })
+
+    document.addEventListener("click", userInteraction);
+    document.addEventListener("keydown", userInteraction);
+    document.addEventListener("touchstart", userInteraction);
+
+    function userInteraction() {
+        if (!globalInteraction) {
+            globalInteraction = true;
+            console.log("interaction alright")
+        }
+    };
+
+    function userHasInteracted(callback) {
+        if (userHasInteracted) {
+            callback();
+        }
+    }
 
     drawColor();
 });
