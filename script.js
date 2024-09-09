@@ -89,6 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
             video.webkitEnterFullscreen();
             playVideo();
         }
+        video.webkitEnterFullscreen();
+            playVideo();
     });
 
     document.addEventListener("fullscreenchange", () => {
