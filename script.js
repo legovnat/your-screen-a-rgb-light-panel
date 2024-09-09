@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    let globalInteraction = false;
+    /// let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -39,28 +39,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    inputColor.addEventListener("click", () => {
+    /* inputColor.addEventListener("click", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
         userHasInteracted(drawColor);
-    });
+    }); */
 
 
     inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
-        userHasInteracted(drawColor);
+        drawColor();
     });
 
     function drawColor() {
         if (isHexGood(currentColor)) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            /* ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
             const stream = canvas.captureStream(30);
             video.srcObject = stream;
-            video.play();
+            video.play(); */
             divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
@@ -69,25 +69,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function playVideo() {
+        if (isHexGood(currentColor)) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#" + currentColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+            const stream = canvas.captureStream(30);
+            video.srcObject = stream;
+            video.play();
+        }
+    }
+
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen) {
-        video.webkitEnterFullscreen();
-        } else if (video.requestFullscreen) {
+        if (video.requestFullscreen) {
             video.requestFullscreen();
+            playVideo();
+        } else if (video.webkitEnterFullscreen) {
+            video.webkitEnterFullscreen();
+            playVideo();
         }
     });
 
     document.addEventListener("fullscreenchange", () => {
         if (document.fullscreenElement) {
-            video.classList.remove("h-1/2");
-            video.classList.add("h-full");
+            video.classList.remove("hidden");
+            /// video.classList.add("h-full");
         } else {
-            video.classList.remove("h-full");
-            video.classList.add("h-1/2");
+            /// video.classList.remove("h-full");
+            video.classList.add("hidden");
         }
     })
 
-    document.addEventListener("click", userInteraction);
+    /* document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
@@ -102,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    }
+    } */
 
     drawColor();
 });
