@@ -5,15 +5,14 @@
     <title>Make your screen a RGB light panel</title>
 </head>
 
-<body class="flex flex-col m-4 h-svh w-svw justify-between bg-gradient-to-b from-zinc-950 to-zinc-900">
+<body class="flex flex-col m-4 h-dvh justify-between bg-gradient-to-b from-zinc-950 to-zinc-900">
     <div class="flex flex-col space-y-4">
-        <h1 class="text-4xl md:text-xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
-                panel </span> <span class="text-4xl">&#127909;</span></h1>
-        <div class="hidden">
-            <canvas id="canvas"></canvas>
-        </div>
+        <div class="flex flex-grow"></div>
+        <h1 class="text-4xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
+                panel </span> <span class="text-4xl">&#127909;</span></h1></div>
+            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md flex w-full h-1/2"></canvas>
         <video id="video" muted playsinline class="hidden"></video>
-        <div id="divVideo" class="flex w-full h-1/2" style="background-color: #ff0000"></div>
+        <!-- <div id="divVideo" class="hidden:" style="background-color: #ff0000"></div> -->
         <div class="flex flex-row space-x-4 w-full content-center">
             <label for="inputText" class="text-zinc-100 text-2xl">Pick a color:</label>
             <div class="flex flex-col space-y-1">
@@ -35,6 +34,6 @@
                 data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff"
                 data-coffee-color="#FFDD00"></script>
         </div>
-        <p class="flex justify-center text-zinc-300">Version 0.2.9</p>
+        <p class="flex justify-center text-zinc-300">Version 0.3.0</p>
     </div>
 </body>
