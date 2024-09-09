@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (/iPad|iPod|iPhone/.test(navigator.userAgent) && !window.MSStream) {
-            video.webkitEnterFullscreen();
-            playVideo();
-        } else {
+        if (video.requestFullscreen) {
             video.requestFullscreen();
+            playVideo();
+        } else if (video.webkitEnterFullscreen) {
+            video.webkitEnterFullscreen();
             playVideo();
         }
     });
