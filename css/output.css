@@ -644,6 +644,18 @@ video {
   height: 500px;
 }
 
+.h-\[1000px\] {
+  height: 1000px;
+}
+
+.h-\[100rem\] {
+  height: 100rem;
+}
+
+.h-\[50rem\] {
+  height: 50rem;
+}
+
 .w-\[2rem\] {
   width: 2rem;
 }
