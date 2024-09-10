@@ -10,31 +10,31 @@
         <div class="flex flex-col space-y-4">
             <h1 class="text-8xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
                     panel</span> <!-- <span class="text-4xl"> &#127909;</span> --></h1>
-            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md flex h-7/8 w-full"></canvas>
+            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md h-[400px] w-full"></canvas>
             <video id="video" muted playsinline class="hidden"></video>
             <!-- <div id="divVideo" class="hidden:" style="background-color: #ff0000"></div> -->
-            <div class="flex flex-row w-full align-baseline space-x-8">
-                <label for="inputText" class="text-zinc-100 text-6xl">Pick a color:</label>
+            <div class="flex flex-row w-full space-x-8">
+                <label for="inputText" class="text-zinc-100 text-6xl pt-2">Pick a color:</label>
                 <div class="flex-col space-y-1">
                     <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7"
-                        class="flex bg-transparent border-2 border-pink-400 text-zinc-100 w-8 rounded-md p-1 text-6xl">
+                        class="flex bg-transparent border-2 border-pink-400 text-zinc-100 w-48 rounded-md p-1 text-6xl">
                     <p id="inputError" class="text-sm text-pink-400"></p>
                 </div>
                 <input id="inputColor" type="color" value="#ff0000"
                     class="flex bg-transparent border-2 border-pink-400 p-0.5 m-0.5 rounded-md w-20 h-20">
             </div>
             <button id="fullscreen-button"
-                class="text-6xl shadow-lg rounded-md p-10 text-zinc-950 bg-pink-400 hover:bg-pink-500 active:bg-pink-700 transition duration-150 ease-in-out">
+                class="text-6xl shadow-lg rounded-md p-10 text-zinc-950 bg-pink-600 hover:bg-pink-500 active:bg-pink-700 transition duration-150 ease-in-out">
                 Fullscreen it!</button>
         </div>
         <div class="p-2 border-t-8 border-pink-400 flex flex-row-reverse justify-between items-center">
-            <div>
+            <div class="scale-150">
                 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
                     data-name="bmc-button" data-slug="nathanvogel" data-color="#be185d" data-emoji="☕"
                     data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff"
                     data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
             </div>
-            <p class="flex justify-center text-4xl text-zinc-300">Developed by Nathan Vogel -- Version 0.4.0</p>
+            <p class="flex justify-center text-3xl text-zinc-300">Developed by Nathan Vogel -- Version 0.4.1</p>
         </div>
     </div>
 </body>
