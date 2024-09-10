@@ -5,12 +5,12 @@
     <title>Make your screen a RGB light panel</title>
 </head>
 
-<body class="flex flex-col m-4 h-dvh w-screen bg-gradient-to-b from-zinc-950 to-zinc-900">
-    <div class="flex flex-col space-y-8 w-full h-full">
+<body class="flex flex-col h-dvh w-screen bg-gradient-to-b from-zinc-950 to-zinc-900">
+    <div class="m-4 flex justify-between flex-col w-full h-full">
         <div class="flex flex-col space-y-4">
-            <h1 class="text-7xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
-                    panel </span> <span class="text-4xl">&#127909;</span></h1>
-            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md flex w-full h-full"></canvas>
+            <h1 class="text-8xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
+                    panel</span> <!-- <span class="text-4xl"> &#127909;</span> --></h1>
+            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md flex h-7/8 w-full"></canvas>
             <video id="video" muted playsinline class="hidden"></video>
             <!-- <div id="divVideo" class="hidden:" style="background-color: #ff0000"></div> -->
             <div class="flex flex-row w-full justify-start">
@@ -27,14 +27,14 @@
                 class="text-6xl shadow-lg rounded-md p-10 text-zinc-100 bg-pink-700 hover:bg-pink-900 transition duration-150 ease-in-out">
                 Fullscreen it!</button>
         </div>
-        <div class="flex flex-row-reverse justify-between items-center w-full">
-            <div class="scale-150">
+        <div class="border-t-8 border-pink-400 flex flex-row-reverse justify-between items-center w-full">
+            <div>
                 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
                     data-name="bmc-button" data-slug="nathanvogel" data-color="#be185d" data-emoji="☕"
                     data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff"
                     data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
             </div>
-            <p class="flex justify-center text-4xl text-zinc-300">Developed by Nathan Vogel -- Version 0.3.8</p>
+            <p class="flex justify-center text-4xl text-zinc-300">Developed by Nathan Vogel -- Version 0.3.9</p>
         </div>
     </div>
 </body>
