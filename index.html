@@ -2,6 +2,7 @@
     <link href="css/output.css" rel="stylesheet">
     <script src="script.js"></script>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#000000"
     <title>Make your screen a RGB light panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,12 +13,17 @@
 
 <body class="flex flex-col h-dvh w-dvw p-8 bg-gradient-to-b from-zinc-950 to-zinc-900">
     <div class="flex justify-between flex-col w-full h-full">
-        <div class="flex flex-col space-y-4">
-            <h1 class=" text-8xl font-medium text-zinc-100">Make your screen a <span class="italic font-bold"><span class="text-red-600">R</span><span class="text-green-600">G</span><span class="text-blue-600">B</span> light
+        <div class="flex flex-col space-y-16">
+            <h1 class="mb-8 text-8xl font-medium text-zinc-100">Make your screen a <span class="italic font-bold"><span
+                        class="text-red-600">R</span><span class="text-green-600">G</span><span
+                        class="text-blue-600">B</span> light
                     panel</span> <!-- <span class="text-4xl"> &#127909;</span> --></h1>
-            <canvas id="canvas" class="border-4 border-zinc-950 rounded-xl h-[50rem] w-full"></canvas>
-            <video id="video" muted playsinline class="hidden"></video>
-            <!-- <div id="divVideo" class="hidden:" style="background-color: #ff0000"></div> -->
+            <div class="flex">
+                <canvas id="canvas" class="border-4 border-zinc-950 rounded-xl h-[50rem] w-full"></canvas>
+                <video id="video" muted playsinline class="hidden"></video>
+                <div id="divVideo" class="blur-2xl -z-20 absolute h-[50rem] w-full" style="background-color: #ff0000">
+                </div>
+            </div>
             <div class="flex flex-row w-full space-x-8">
                 <label for="inputText" class="text-zinc-100 text-6xl pt-2 ">Pick a color:</label>
                 <div class="flex-col space-y-1">
@@ -32,7 +38,7 @@
                 class="font-bold text-6xl shadow-lg rounded-xl p-10 text-zinc-100 bg-pink-600 hover:bg-pink-500 active:bg-pink-700 transition duration-150 ease-in-out">
                 Fullscreen it!</button>
         </div>
-        <div class="p-2 border-t-8 border-pink-400 flex flex-row-reverse justify-between items-center">
+        <div class="p-2 mt-4 border-t-8 border-pink-400 flex flex-row-reverse justify-between items-center">
             <div>
                 <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
                     data-name="bmc-button" data-slug="nathanvogel" data-color="#be185d" data-emoji="☕"
@@ -40,7 +46,7 @@
                     data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
             </div>
             <p class="text-3xl text-zinc-300 ">Developed by <a class="underline"
-                    href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.4.5</p>
+                    href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.4.6</p>
         </div>
     </div>
 </body>

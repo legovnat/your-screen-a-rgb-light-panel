@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputError = document.getElementById("inputError");
 
     const video = document.getElementById("video");
-    /// const divVideo = document.getElementById("divVideo");
+    const divVideo = document.getElementById("divVideo");
 
     /// let globalInteraction = false;
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             /* const stream = canvas.captureStream(30);
             video.srcObject = stream;
             video.play(); */
-            /// divVideo.style.backgroundColor = "#" + currentColor;
+            divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
         } else {
