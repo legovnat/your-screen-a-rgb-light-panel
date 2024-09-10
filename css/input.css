@@ -9,4 +9,8 @@
     video {
         object-fit: cover;
     }
+    body {
+        font-family: "Inria Sans", sans-serif;
+    }
 }
+
