@@ -627,6 +627,23 @@ video {
   height: 400px;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
+.h-\[500px\] {
+  height: 500px;
+}
+
 .w-\[2rem\] {
   width: 2rem;
 }
@@ -964,6 +981,10 @@ video {
 .text-zinc-950 {
   --tw-text-opacity: 1;
   color: rgb(9 9 11 / var(--tw-text-opacity));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .shadow-lg {

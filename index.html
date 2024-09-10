@@ -10,14 +10,14 @@
         <div class="flex flex-col space-y-4">
             <h1 class="text-8xl font-medium text-zinc-100">Make your screen a <span class="italic">RGB light
                     panel</span> <!-- <span class="text-4xl"> &#127909;</span> --></h1>
-            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md h-screen w-full"></canvas>
+            <canvas id="canvas" class="border-4 border-zinc-950 rounded-md h-[500px] w-full"></canvas>
             <video id="video" muted playsinline class="hidden"></video>
             <!-- <div id="divVideo" class="hidden:" style="background-color: #ff0000"></div> -->
             <div class="flex flex-row w-full space-x-8">
                 <label for="inputText" class="text-zinc-100 text-6xl pt-2">Pick a color:</label>
                 <div class="flex-col space-y-1">
                     <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7"
-                        class="flex bg-transparent border-2 border-pink-400 text-zinc-100 w-48 rounded-md p-1 text-6xl">
+                        class="flex bg-transparent border-2 border-pink-400 text-zinc-100 w-56 rounded-md p-1 text-6xl">
                     <p id="inputError" class="text-sm text-pink-400"></p>
                 </div>
                 <input id="inputColor" type="color" value="#ff0000"
@@ -34,7 +34,7 @@
                     data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#ffffff"
                     data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
             </div>
-            <p class="flex justify-center text-3xl text-zinc-300">Developed by <a href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.4.2</p>
+            <p class="text-3xl text-zinc-300">Developed by <a class="underline" href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.4.3</p>
         </div>
     </div>
 </body>
