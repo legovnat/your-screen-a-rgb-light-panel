@@ -80,7 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.requestFullscreen) {
+        try {
+            video.webkitEnterFullscreen();
+        } catch {
+            video.requestFullscreen();
+        }
+        playVideo();
+
+        /* if (video.requestFullscreen) {
             video.requestFullscreen();
             playVideo();
         } else if (video.webkitEnterFullscreen) {
@@ -92,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const stream = canvas.captureStream(30);
             video.srcObject = stream;
             video.play();
-        }
+        } */
     });
 
     document.addEventListener("fullscreenchange", () => {
