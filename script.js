@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function userInteraction() {
         if (!globalInteraction) {
             globalInteraction = true;
-            playVideo();
+            /// playVideo();
             console.log("interaction alright")
         }
     };
