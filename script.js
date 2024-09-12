@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
+        /* if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
             /// video.classList.remove("hidden");
             playVideo();
             /// video.webkitEnterFullscreen();
-        } else if (video.requestFullscreen) {
+        } else */ if (video.requestFullscreen) {
             /// video.classList.remove("hidden");
             video.requestFullscreen();
             playVideo();
@@ -89,6 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
             /// video.classList.remove("hidden");
             video.webkitRequestFullscreen();
             userHasInteracted(playVideo);
+        }
+    });
+
+    fullscreenButton.addEventListener("touchstart", () => {
+        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
+            /// video.classList.remove("hidden");
+            playVideo();
+            video.webkitEnterFullscreen();
         }
     });
 
