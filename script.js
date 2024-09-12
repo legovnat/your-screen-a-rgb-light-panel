@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    let globalInteraction = false;
+    /// let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -77,16 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        /* if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            /// video.classList.remove("hidden");
-            playVideo();
-            /// video.webkitEnterFullscreen();
-        } else */ if (video.requestFullscreen) {
-            /// video.classList.remove("hidden");
+        if (video.requestFullscreen) {
             video.requestFullscreen();
             playVideo();
         } else if (video.webkitRequestFullscreen) {
-            /// video.classList.remove("hidden");
             video.webkitRequestFullscreen();
             userHasInteracted(playVideo);
         }
@@ -94,18 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("touchstart", () => {
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            /// video.classList.remove("hidden");
-            playVideo();
             video.webkitEnterFullscreen();
+            playVideo();
         }
     });
-
-    /* function fakeFullscreen() {
-        canvas.classList.remove("h-80", "w-full");
-        canvas.classList.add("h-screen", "w-screen", "z-20");
-        document.children.classList.add("hidden")
-        console.log("wow")
-    }; */
 
     /* document.addEventListener("fullscreenchange", () => {
         if (!document.fullscreenElement){
@@ -119,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }) */
 
-    document.addEventListener("click", userInteraction);
+    /* document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
@@ -135,9 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    }
+    } */
 
     drawColor();
-    playVideo();
 });
 
