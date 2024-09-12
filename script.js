@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        playVideo();
+        userHasInteracted(playVideo);
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            video.webkitEnterFullscreen();
+            userHasInteracted(video.webkitEnterFullscreen);
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
         } else if (video.webkitRequestFullscreen) {
