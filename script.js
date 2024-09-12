@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    /// let globalInteraction = false;
+    let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
             /// video.classList.remove("hidden");
-            playVideo();
+            userHasInteracted(playVideo);
             video.webkitEnterFullscreen();
         } else if (video.requestFullscreen) {
             /// video.classList.remove("hidden");
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (video.webkitRequestFullscreen) {
             /// video.classList.remove("hidden");
             video.webkitRequestFullscreen();
-            playVideo();
+            userHasInteracted(playVideo);
         }
     });
 
@@ -109,15 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             video.classList.add("hidden");
         }
-    })
+    }) */
 
-    /* document.addEventListener("click", userInteraction);
+    document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
     function userInteraction() {
         if (!globalInteraction) {
             globalInteraction = true;
+            playVideo();
             console.log("interaction alright")
         }
     };
@@ -126,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    } */
+    }
 
     drawColor();
     playVideo();
