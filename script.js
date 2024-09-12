@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    /// let globalInteraction = false;
+    let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        try {
+        if (video.webkitEnterFullscreen && /[iPod|iPad|iPhone]/.test(navigator.userAgent)) {
             video.webkitEnterFullscreen();
-        } catch {
+        } else if (video.requestFullscreen) {
             video.requestFullscreen();
         }
         playVideo();
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    /* document.addEventListener("click", userInteraction);
+    document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    } */
+    }
 
     drawColor();
 });
