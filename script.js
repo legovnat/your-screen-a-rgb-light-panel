@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    let globalInteraction = false;
+    /// let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -56,9 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            /* const stream = canvas.captureStream(30);
-            video.srcObject = stream;
-            video.play(); */
             divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
@@ -80,34 +77,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        userHasInteracted(playVideo);
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            userHasInteracted(video.webkitEnterFullscreen);
+            video.classList.remove("hidden");
+            video.webkitEnterFullscreen();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
         } else if (video.webkitRequestFullscreen) {
             video.webkitRequestFullscreen();
         }
+        playVideo();
     });
 
-    function fakeFullscreen() {
+    /* function fakeFullscreen() {
         canvas.classList.remove("h-80", "w-full");
         canvas.classList.add("h-screen", "w-screen", "z-20");
         document.children.classList.add("hidden")
         console.log("wow")
-    };
+    }; */
 
     document.addEventListener("fullscreenchange", () => {
-        if (document.fullscreenElement) {
+        if (document.fullscreenElement && video.classList.contains("hidden")) {
             video.classList.remove("hidden");
-            /// video.classList.add("h-full");
+        } else if (document.fullscreenElement && !video.classList.contains("hidden")) {
         } else {
-            /// video.classList.remove("h-full");
             video.classList.add("hidden");
         }
     })
 
-    document.addEventListener("click", userInteraction);
+    /* document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
@@ -122,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    }
+    } */
 
     drawColor();
 });
