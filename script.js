@@ -82,9 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
             playVideo();
             video.webkitEnterFullscreen();
         } else if (video.requestFullscreen) {
+            video.classList.remove("hidden");
             video.requestFullscreen();
             playVideo();
         } else if (video.webkitRequestFullscreen) {
+            video.classList.remove("hidden");
             video.webkitRequestFullscreen();
             playVideo();
         }
@@ -98,12 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }; */
 
     document.addEventListener("fullscreenchange", () => {
-        if (document.fullscreenElement && video.classList.contains("hidden")) {
+        if (!document.fullscreenElement){
+            video.classList.add("hidden");
+        }
+        /* if (document.fullscreenElement && video.classList.contains("hidden")) {
             video.classList.remove("hidden");
         } else if (document.fullscreenElement && !video.classList.contains("hidden")) {
         } else {
             video.classList.add("hidden");
-        }
+        } */
     })
 
     /* document.addEventListener("click", userInteraction);
