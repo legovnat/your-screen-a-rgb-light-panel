@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height)
-
+            
             divVideo.style.backgroundColor = "#" + currentColor;
 
             inputError.textContent = "";
@@ -77,18 +77,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.requestFullscreen) {
+        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
+            video.webkitEnterFullscreen();
+            playVideo();
+        } else if (video.requestFullscreen) {
             video.requestFullscreen();
             playVideo();
         } else if (video.webkitRequestFullscreen) {
             video.webkitRequestFullscreen();
-            userHasInteracted(playVideo);
+            playVideo();
         }
     });
 
     fullscreenButton.addEventListener("touchstart", () => {
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
             video.webkitEnterFullscreen();
+            playVideo();
+        } else if (video.requestFullscreen) {
+            video.requestFullscreen();
+            playVideo();
+        } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
             playVideo();
         }
     });
