@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
+        if (video.webkitEnterFullscreen /*&& /iPod|iPad|iPhone/.test(navigator.userAgent) */) {
             /// video.classList.remove("hidden");
             userHasInteracted(playVideo);
             video.webkitEnterFullscreen();
