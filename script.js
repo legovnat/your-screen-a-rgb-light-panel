@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
+        if (video.webkitEnterFullscreen) {
             video.webkitEnterFullscreen();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
@@ -88,20 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
             video.webkitRequestFullscreen();
         }
         playVideo();
-
-        /* if (video.requestFullscreen) {
-            video.requestFullscreen();
-            playVideo();
-        } else if (video.webkitEnterFullscreen) {
-            video.webkitEnterFullscreen();
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#" + currentColor;
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-            const stream = canvas.captureStream(30);
-            video.srcObject = stream;
-            video.play();
-        } */
     });
 
     document.addEventListener("fullscreenchange", () => {
