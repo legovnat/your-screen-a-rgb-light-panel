@@ -80,7 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen) {
+        if (/iPod|iPad|iPhone/.test(navigator.userAgent)) {
+            fakeFullscreen();
             video.webkitEnterFullscreen();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
@@ -89,6 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         playVideo();
     });
+
+    function fakeFullscreen() {
+        canvas.classList.remove("h-80", "w-full");
+        canvas.classList.add("h-screen", "w-screen", "z-20");
+        document.children.classList.add("hidden")
+        console.log("wow")
+    };
 
     document.addEventListener("fullscreenchange", () => {
         if (document.fullscreenElement) {
