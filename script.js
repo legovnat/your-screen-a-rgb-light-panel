@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
-    /// let globalInteraction = false;
+    let globalInteraction = false;
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
-        drawColor();
+        userHasInteracted(drawColor);
     });
 
     function drawColor() {
@@ -55,8 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
+
             divVideo.style.backgroundColor = "#" + currentColor;
+
+            const stream = canvas.captureStream(30);
+            video.srcObject = stream;
+            video.play();
 
             inputError.textContent = "";
         } else {
@@ -77,6 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
+        if (video.webkitEnterFullscreen) {
+            video.webkitEnterFullscreen();
+        } else if (video.requestFullscreen) {
+            video.requestFullscreen();
+        }
+    });
+
+    /* fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
             video.webkitEnterFullscreen();
             playVideo();
@@ -100,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
             video.webkitRequestFullscreen();
             playVideo();
         }
-    });
+    }); */
 
     /* document.addEventListener("fullscreenchange", () => {
         if (!document.fullscreenElement){
@@ -114,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }) */
 
-    /* document.addEventListener("click", userInteraction);
+    document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
 
@@ -130,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userHasInteracted) {
             callback();
         }
-    } */
+    }
 
     drawColor();
 });
