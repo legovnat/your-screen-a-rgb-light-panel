@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isHexGood(currentColor)) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             
             divVideo.style.backgroundColor = "#" + currentColor;
 
@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function playVideo() {
         if (isHexGood(currentColor)) {
-            /* ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "#" + currentColor;
-            ctx.fillRect(0, 0, canvas.width, canvas.height) */
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             const stream = canvas.captureStream(30);
             video.srcObject = stream;
