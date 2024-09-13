@@ -99,5 +99,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
-    fakeFullscreen();
 });
