@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    inputColor.addEventListener("click", () => {
+    /* inputColor.addEventListener("click", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
         userHasInteracted(drawColor);
-    });
+    }); */
 
 
     inputColor.addEventListener("input", () => {
@@ -83,8 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
             video.webkitEnterFullscreen();
+            drawColor();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
+            drawColor();
         }
     });
 
