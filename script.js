@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true;
+        inputError.textContent = "function called";
         canvas.classList.add("absolute");
+
     };
 
     function exitfakeFullscreen() {
