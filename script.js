@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            inputError.textContent = "condidtional's good";
             fakeFullscreen();
         } else if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
