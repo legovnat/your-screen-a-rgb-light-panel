@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function fakeFullscreen() {
         mobileFullscreen = true;
         canvas.className = "";
-        /// canvas.classList.remove("h-80", "rounded-xl", "border-4");
+        canvas.classList.remove("h-80", "rounded-xl", "border-4");
         canvas.classList.add("fixed", "inset-0", "h-screen", "z-20");
         inputError.textContent = "function called";
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!globalInteraction) {
             globalInteraction = true;
         } else if (mobileFullscreen) {
-            exitfakeFullscreen();
+            /// exitfakeFullscreen();
         }
     };
 
