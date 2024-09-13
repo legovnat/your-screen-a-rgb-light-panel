@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const stream = canvas.captureStream(30);
             video.srcObject = stream;
-            video.play();
+            /// video.play();
         }
     }
 
