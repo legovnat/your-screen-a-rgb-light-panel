@@ -118,18 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }); */
 
-    /* document.addEventListener("fullscreenchange", () => {
-        if (!document.fullscreenElement){
-            video.classList.add("hidden");
-        }
-        /* if (document.fullscreenElement && video.classList.contains("hidden")) {
-            video.classList.remove("hidden");
-        } else if (document.fullscreenElement && !video.classList.contains("hidden")) {
-        } else {
-            video.classList.add("hidden");
-        }
-    }) */
-
     document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
