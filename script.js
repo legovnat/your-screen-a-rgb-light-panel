@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen && globalInteraction) {
+        if (video.webkitEnterFullscreen) {
+            inputError.textContent = "Condition works"
             video.webkitEnterFullscreen();
             playVideo();
         } else if (video.requestFullscreen) {
