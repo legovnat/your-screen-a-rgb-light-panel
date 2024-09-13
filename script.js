@@ -14,6 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const divVideo = document.getElementById("divVideo");
 
     let globalInteraction = false;
+    let mobileFullscreen = false;
+
+    function fakeFullscreen() {
+        mobileFullscreen = true
+        document.querySelectorAll('*').forEach(element => {
+            element.classList.add("hidden")
+        })
+        const background = document.getElementById("background");
+        background.classList.remove("bg-gradient-to-t", "from-zinc-950", "to-zinc-900");
+        background.style.backgroundColor = "#" + currentColor;
+    };
+
+    function exitfakeFullscreen() {
+        mobileFullscreen = false;
+        document.querySelectorAll('*').forEach(element => {
+            element.classList.remove("hidden")
+        })
+        const background = document.getElementById("background");
+        background.style.backgroundColor = "";
+        background.classList.add("bg-gradient-to-t", "from-zinc-950", "to-zinc-900");
+    }
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
@@ -80,8 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
-            video.webkitEnterFullscreen();
-            video.play();
+            fakeFullscreen();
             /// inputError.textContent = "Condition works - it does!"
             /// video.webkitEnterFullscreen();
             /// playVideo();
@@ -128,6 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
             /// videoTwo.webkitEnterFullscreen();
             /// playVideo();
             console.log("interaction alright")
+            if (mobileFullscreen) {
+                exitfakeFullscreen();
+            }
         }
     };
 
