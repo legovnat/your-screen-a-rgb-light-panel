@@ -148,9 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
             /// videoTwo.webkitEnterFullscreen();
             /// playVideo();
             console.log("interaction alright")
-            if (mobileFullscreen) {
-                exitfakeFullscreen();
-            }
+        }
+
+        if (mobileFullscreen) {
+            exitfakeFullscreen();
         }
     };
 
