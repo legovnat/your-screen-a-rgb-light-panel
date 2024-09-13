@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true;
-        canvas.classList.remove("h-80", "rounded-xl", "border-4");
+        canvas.className = "";
+        /// canvas.classList.remove("h-80", "rounded-xl", "border-4");
         canvas.classList.add("fixed", "inset-0", "h-screen", "z-20");
         inputError.textContent = "function called";
 
@@ -27,7 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileFullscreen = false;
         canvas.classList.remove("fixed", "inset-0", "h-screen", "z-20");
         canvas.classList.add("h-80", "rounded-xl", "border-4");
-    }
+    };
+
+    function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        canvas.style.width = "";
+        canvas.style.height = "";
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+    };
+
+    window.addEventListener("resize", () => {
+        if (mobileFullscreen) {
+            resizeCanvas();
+        }
+    });
 
     function isHexGood(hex) {
         return /^([0-9A-Fa-f]{6})$/.test(hex);
