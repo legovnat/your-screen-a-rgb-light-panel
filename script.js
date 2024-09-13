@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
-            inputError.textContent = "Condition works"
+            inputError.textContent = "Condition works - it does!"
             video.webkitEnterFullscreen();
             playVideo();
         } else if (video.requestFullscreen) {
@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function userInteraction() {
         if (!globalInteraction) {
             globalInteraction = true;
+            videoTwo.webkitEnterFullscreen();
             /// playVideo();
             console.log("interaction alright")
         }
@@ -145,4 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     drawColor();
     playVideo();
+
+    const videoTwo = document.getElementById("video-two");
 });

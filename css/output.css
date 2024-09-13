@@ -735,6 +735,10 @@ body {
   width: 6rem;
 }
 
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
 .scale-75 {
   --tw-scale-x: .75;
   --tw-scale-y: .75;
