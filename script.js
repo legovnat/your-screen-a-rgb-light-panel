@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             inputError.textContent = "";
         } else {
-            inputError.textContent = "Sorry! Doesn't seem like a real 6-digit hex code.";
+            inputError.textContent = "Sorry! Doesn't seem like a 6-digit hex code.";
         }
     }
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen) {
+        if (video.webkitEnterFullscreen && globalInteraction) {
             video.webkitEnterFullscreen();
             playVideo();
         } else if (video.requestFullscreen) {

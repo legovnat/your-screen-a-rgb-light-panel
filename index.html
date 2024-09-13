@@ -32,12 +32,15 @@
                 <div class="flex flex-row w-full space-x-4">
                     <label for="inputText" class="text-zinc-100 text-xl md:text-4xl pt-2 ">Choose a color:</label>
                     <div class="flex-col space-y-1">
-                        <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7"
-                            class="md:text-4xl flex bg-transparent border-2 border-pink-400 text-zinc-100 w-24 md:w-40 rounded-xl p-1 text-xl">
-                        <p id="inputError" class="text-sm text-pink-400 "></p>
+                        <div class="flex flex-row space-x-4">
+                            <input type="text" id="inputText" name="inputText" value="ff0000" maxlength="7"
+                                class="md:text-4xl flex bg-transparent border-2 border-pink-400 text-zinc-100 w-24 md:w-40 rounded-xl p-1 text-xl">
+                            <input id="inputColor" type="color" value="#ff0000"
+                                class="flex bg-transparent border-2 border-pink-400 md:p-0.5 md:m-0.5 rounded-xl w-10 h-10 md:w-12 md:h-12">
+                        </div>
+                        <p id="inputError" class="text-sm md:text-md text-pink-400 "></p>
                     </div>
-                    <input id="inputColor" type="color" value="#ff0000"
-                        class="flex bg-transparent border-2 border-pink-400 md:p-0.5 md:m-0.5 rounded-xl w-10 h-10 md:w-12 md:h-12">
+
                 </div>
                 <button id="fullscreen-button"
                     class="font-bold text-2xl md:text-4xl shadow-lg rounded-xl p-2 md:p-4 text-zinc-100 bg-pink-600 hover:bg-pink-800 active:bg-pink-500 transition duration-150 ease-in-out">
@@ -52,7 +55,7 @@
                     data-font-color="#000000" data-coffee-color="#FFDD00"></script>
             </div>
             <p class="text-xs md:text-lg text-zinc-300 -mr-8 md:mr-0">Developed by <a class="underline"
-                    href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.8.2</p>
+                    href="https://www.instagram.com/nathan.makesthings.vogel/">Nathan Vogel</a> -- Version 0.8.3</p>
         </div>
     </div>
 </body>
