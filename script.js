@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
-        userHasInteracted(drawColor);
+        drawColor();
     });
 
     function drawColor() {
@@ -57,10 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             divVideo.style.backgroundColor = "#" + currentColor;
-
-            const stream = canvas.captureStream(30);
-            video.srcObject = stream;
-            video.play();
 
             inputError.textContent = "";
         } else {
@@ -83,10 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
             video.webkitEnterFullscreen();
-            drawColor();
+            playVideo();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
-            drawColor();
+            playVideo();
         }
     });
 
@@ -147,5 +143,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
+    playVideo();
 });
-
