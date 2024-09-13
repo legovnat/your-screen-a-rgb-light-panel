@@ -130,16 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }) */
 
-    document.addEventListener("fullscreenchange", () => {
-        if (document.fullscreenElement) {
-            video.classList.remove("h-80");
-            video.classList.add("h-full");
-        } else {
-            video.classList.remove("h-full");
-            video.classList.add("h-80");
-        }
-    })
-
     document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
     document.addEventListener("touchstart", userInteraction);
