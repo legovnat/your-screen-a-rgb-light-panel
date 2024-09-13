@@ -10,22 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inputError = document.getElementById("inputError");
 
-    const video = document.getElementById("video");
     const divVideo = document.getElementById("divVideo");
 
     let globalInteraction = false;
     let mobileFullscreen = false;
 
     function fakeFullscreen() {
-        mobileFullscreen = true
-        canvas.classList.remove("h-80");
-        canvas.classList.add("h-full");
+        mobileFullscreen = true;
+        canvas.classList.add("absolute");
     };
 
     function exitfakeFullscreen() {
         mobileFullscreen = false;
-        canvas.classList.remove("h-full");
-        canvas.classList.add("h-80");
+        canvas.classList.remove("absolute");
     }
 
     function isHexGood(hex) {
@@ -50,13 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* inputColor.addEventListener("click", () => {
-        inputText.value = inputColor.value.replace("#", "");
-        currentColor = inputColor.value.replace("#", "");
-        userHasInteracted(drawColor);
-    }); */
-
-
     inputColor.addEventListener("input", () => {
         inputText.value = inputColor.value.replace("#", "");
         currentColor = inputColor.value.replace("#", "");
@@ -70,8 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             divVideo.style.backgroundColor = "#" + currentColor;
-            const stream = canvas.captureStream(30);
-            video.srcObject = stream;
 
             inputError.textContent = "";
         } else {
@@ -79,56 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    function playVideo() {
-        if (isHexGood(currentColor)) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "#" + currentColor;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            const stream = canvas.captureStream(30);
-            video.srcObject = stream;
-            /// video.play();
-        }
-    }
-
     fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen) {
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
             fakeFullscreen();
-            /// inputError.textContent = "Condition works - it does!"
-            /// video.webkitEnterFullscreen();
-            /// playVideo();
-        } else if (video.requestFullscreen) {
-            video.requestFullscreen();
-            video.play();
-            /// playVideo();
+        } else if (canvas.requestFullscreen) {
+            canvas.requestFullscreen();
         }
     });
-
-    /* fullscreenButton.addEventListener("click", () => {
-        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            video.webkitEnterFullscreen();
-            playVideo();
-        } else if (video.requestFullscreen) {
-            video.requestFullscreen();
-            playVideo();
-        } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-            playVideo();
-        }
-    });
-
-    fullscreenButton.addEventListener("touchstart", () => {
-        if (video.webkitEnterFullscreen && /iPod|iPad|iPhone/.test(navigator.userAgent)) {
-            video.webkitEnterFullscreen();
-            playVideo();
-        } else if (video.requestFullscreen) {
-            video.requestFullscreen();
-            playVideo();
-        } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-            playVideo();
-        }
-    }); */
 
     document.addEventListener("click", userInteraction);
     document.addEventListener("keydown", userInteraction);
@@ -137,9 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function userInteraction() {
         if (!globalInteraction) {
             globalInteraction = true;
-            /// videoTwo.webkitEnterFullscreen();
-            /// playVideo();
-            console.log("interaction alright")
         } else if (mobileFullscreen) {
             exitfakeFullscreen();
         }
@@ -152,7 +94,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
-    /// playVideo();
-
-    const videoTwo = document.getElementById("video-two");
 });
