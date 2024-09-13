@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             divVideo.style.backgroundColor = "#" + currentColor;
+            const stream = canvas.captureStream(30);
+            video.srcObject = stream;
 
             inputError.textContent = "";
         } else {
@@ -80,10 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (video.webkitEnterFullscreen) {
             inputError.textContent = "Condition works - it does!"
             video.webkitEnterFullscreen();
-            playVideo();
+            /// playVideo();
         } else if (video.requestFullscreen) {
             video.requestFullscreen();
-            playVideo();
+            /// playVideo();
         }
     });
 
@@ -145,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
-    playVideo();
+    /// playVideo();
 
     const videoTwo = document.getElementById("video-two");
 });
