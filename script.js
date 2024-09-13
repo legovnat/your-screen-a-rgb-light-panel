@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true;
-        canvas.classList.remove("h-80");
-        canvas.classList.add("h-screen");
+        canvas.classList.replace("border-zinc-950", "border-zinc-100");
         inputError.textContent = "function called";
 
     };
