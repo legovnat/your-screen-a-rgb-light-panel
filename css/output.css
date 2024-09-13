@@ -573,8 +573,16 @@ canvas {
   --tw-contain-style:  ;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
+}
+
+.inset-0 {
+  inset: 0px;
 }
 
 .left-0 {
@@ -587,6 +595,10 @@ canvas {
 
 .-z-20 {
   z-index: -20;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .-mr-12 {

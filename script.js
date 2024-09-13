@@ -17,15 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true;
-        canvas.classList.replace("border-zinc-950", "border-zinc-100");
+        canvas.classList.remove("h-80", "rounded-xl", "border-4");
+        canvas.classList.add("fixed", "inset-0", "h-screen", "z-20");
         inputError.textContent = "function called";
 
     };
 
     function exitfakeFullscreen() {
         mobileFullscreen = false;
-        canvas.classList.remove("h-screen");
-        canvas.classList.add("h-80");
+        canvas.classList.remove("fixed", "inset-0", "h-screen", "z-20");
+        canvas.classList.add("h-80", "rounded-xl", "border-4");
     }
 
     function isHexGood(hex) {
@@ -98,4 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
+    fakeFullscreen();
 });
