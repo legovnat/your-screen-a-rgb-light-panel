@@ -18,22 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true
-        document.querySelectorAll('*').forEach(element => {
-            element.classList.add("hidden")
-        })
-        const background = document.getElementById("background");
-        background.classList.remove("bg-gradient-to-t", "from-zinc-950", "to-zinc-900");
-        background.style.backgroundColor = "#" + currentColor;
+        canvas.classList.remove("h-80");
+        canvas.classList.add("h-full");
     };
 
     function exitfakeFullscreen() {
         mobileFullscreen = false;
-        document.querySelectorAll('*').forEach(element => {
-            element.classList.remove("hidden")
-        })
-        const background = document.getElementById("background");
-        background.style.backgroundColor = "";
-        background.classList.add("bg-gradient-to-t", "from-zinc-950", "to-zinc-900");
+        canvas.classList.remove("h-full");
+        canvas.classList.add("h-80");
     }
 
     function isHexGood(hex) {
@@ -148,9 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
             /// videoTwo.webkitEnterFullscreen();
             /// playVideo();
             console.log("interaction alright")
-        }
-
-        if (mobileFullscreen) {
+        } else if (mobileFullscreen) {
             exitfakeFullscreen();
         }
     };
