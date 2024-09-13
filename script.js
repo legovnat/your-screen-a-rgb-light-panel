@@ -80,12 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
-            videoTwo.webkitEnterFullscreen();
+            video.webkitEnterFullscreen();
+            video.play();
             /// inputError.textContent = "Condition works - it does!"
             /// video.webkitEnterFullscreen();
             /// playVideo();
         } else if (video.requestFullscreen) {
-            videoTwo.requestFullscreen();
+            video.requestFullscreen();
+            video.play();
             /// playVideo();
         }
     });
