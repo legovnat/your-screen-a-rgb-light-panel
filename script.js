@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             inputError.textContent = "Sorry! Doesn't seem like a 6-digit hex code.";
         }
-    }
+    };
 
     function playVideo() {
         if (isHexGood(currentColor)) {
@@ -80,11 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (video.webkitEnterFullscreen) {
-            inputError.textContent = "Condition works - it does!"
-            video.webkitEnterFullscreen();
+            videoTwo.webkitEnterFullscreen();
+            /// inputError.textContent = "Condition works - it does!"
+            /// video.webkitEnterFullscreen();
             /// playVideo();
         } else if (video.requestFullscreen) {
-            video.requestFullscreen();
+            videoTwo.requestFullscreen();
             /// playVideo();
         }
     });
