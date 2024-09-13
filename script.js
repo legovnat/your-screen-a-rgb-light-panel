@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function userInteraction() {
         if (!globalInteraction) {
             globalInteraction = true;
-            videoTwo.webkitEnterFullscreen();
+            /// videoTwo.webkitEnterFullscreen();
             /// playVideo();
             console.log("interaction alright")
         }
