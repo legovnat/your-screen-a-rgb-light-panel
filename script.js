@@ -17,14 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fakeFullscreen() {
         mobileFullscreen = true;
-        canvas.classList.add("absolute");
+        canvas.classList.remove("h-80");
+        canvas.classList.add("h-screen");
         inputError.textContent = "function called";
 
     };
 
     function exitfakeFullscreen() {
         mobileFullscreen = false;
-        canvas.classList.remove("absolute");
+        canvas.classList.remove("h-screen");
+        canvas.classList.add("h-80");
     }
 
     function isHexGood(hex) {
