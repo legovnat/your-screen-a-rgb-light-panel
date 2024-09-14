@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.className = "";
         canvas.classList.remove("h-80", "rounded-xl", "border-4");
         canvas.classList.add("fixed", "inset-0", "h-screen", "z-20");
-        inputError.textContent = "function called";
+        
+        document.querySelector("meta[name='theme-color']").setAttribute("content", "#" + currentColor);
 
     };
 
