@@ -33,10 +33,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+    canvas.addEventListener("touchstart", () => {
+        if (mobileFullscreen) {
+            exitfakeFullscreen();
+        }
+    })
+
+    window.addEventListener("resize", () => {
+        if (mobileFullscreen){
+            drawColor();
+        }
+    })
+
     function exitfakeFullscreen() {
         mobileFullscreen = false;
         canvas.classList.remove("fixed", "inset-0", "h-screen", "w-screen", "z-20");
-        canvas.classList.add("h-80", "rounded-xl", "border-4", "w-full");
+        canvas.classList.add("h-80", "rounded-xl", "border-4", "border-zinc-950", "w-full");
+
+        document.querySelector("meta[name='theme-color']").setAttribute("content", "#000000");
     };
 
     function resizeCanvas() {
