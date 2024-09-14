@@ -21,13 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.className = "";
         canvas.classList.remove("h-80", "rounded-xl", "border-4", "w-full");
         canvas.classList.add("fixed", "inset-0", "h-screen", "w-screen", "z-20");
-        
+
         document.querySelector("meta[name='theme-color']").setAttribute("content", "#" + currentColor);
 
         mobileMessage.classList.remove("hidden");
         setTimeout(() => {
-        mobileMessage.classList.replace("opacity-100", "opacity-0");
-    }, 2000);
+            /// mobileMessage.classList.replace("opacity-100", "opacity-0");
+            mobileMessage.style.animation = "fadeOut 0.3s forwards"
+        }, 2000);
 
     };
 
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     window.addEventListener("resize", () => {
-        if (mobileFullscreen){
+        if (mobileFullscreen) {
             drawColor();
         }
     })
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.classList.remove("fixed", "inset-0", "h-screen", "w-screen", "z-20");
         canvas.classList.add("h-80", "rounded-xl", "border-4", "border-zinc-950", "w-full");
         mobileMessage.classList.add("hidden");
-        mobileMessage.classList.replace("opacity-0", "opacity-100");
+        /// mobileMessage.classList.replace("opacity-0", "opacity-100");
         document.querySelector("meta[name='theme-color']").setAttribute("content", "#000000");
     };
 
@@ -133,4 +134,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     drawColor();
+    fakeFullscreen();
 });

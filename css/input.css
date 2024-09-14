@@ -6,15 +6,27 @@
     video::-webkit-media-controls {
         display: none !important;
     }
+
     video {
         object-fit: cover;
     }
+
     body {
         font-family: "Inria Sans", sans-serif;
     }
+
     canvas {
         display: block;
         object-fit: cover;
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
