@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let mobileFullscreen = false;
 
     function fakeFullscreen() {
+
+
         mobileFullscreen = true;
         canvas.className = "";
         canvas.classList.remove("h-80", "rounded-xl", "border-4", "w-full");
@@ -25,10 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     };
 
+    canvas.addEventListener("click", () => {
+        if (mobileFullscreen) {
+            exitfakeFullscreen();
+        }
+    })
+
     function exitfakeFullscreen() {
         mobileFullscreen = false;
-        canvas.classList.remove("fixed", "inset-0", "h-screen", "z-20");
-        canvas.classList.add("h-80", "rounded-xl", "border-4");
+        canvas.classList.remove("fixed", "inset-0", "h-screen", "w-screen", "z-20");
+        canvas.classList.add("h-80", "rounded-xl", "border-4", "w-full");
     };
 
     function resizeCanvas() {
