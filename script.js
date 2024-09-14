@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("orientationchange", () => {
         if (mobileFullscreen) {
             resizeCanvas();
+            window.scrollBy(0, 200);
         }
     });
 
