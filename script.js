@@ -56,18 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("meta[name='theme-color']").setAttribute("content", "#000000");
     };
 
-    function resizeCanvas() {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.style.width = "";
-        canvas.style.height = "";
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-    };
-
     window.addEventListener("orientationchange", () => {
         if (mobileFullscreen) {
             resizeCanvas();
-            window.scrollBy(0, 200);
+            window.scrollBy(0, 1000);
         }
     });
 
