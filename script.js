@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function fakeFullscreen() {
         mobileFullscreen = true;
         canvas.className = "";
-        canvas.classList.remove("h-80", "rounded-xl", "border-4");
-        canvas.classList.add("fixed", "inset-0", "h-screen", "z-20");
+        canvas.classList.remove("h-80", "rounded-xl", "border-4", "w-full");
+        canvas.classList.add("fixed", "inset-0", "h-screen", "w-screen", "z-20");
         
         document.querySelector("meta[name='theme-color']").setAttribute("content", "#" + currentColor);
 
@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fullscreenButton.addEventListener("click", () => {
         if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-            inputError.textContent = "condidtional's good";
             fakeFullscreen();
         } else if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
