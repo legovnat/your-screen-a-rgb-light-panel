@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("meta[name='theme-color']").setAttribute("content", "#" + currentColor);
 
         mobileMessage.classList.remove("hidden");
+        setTimeout(() => {
         mobileMessage.classList.replace("opacity-100", "opacity-0");
+    }, 2000);
 
     };
 
