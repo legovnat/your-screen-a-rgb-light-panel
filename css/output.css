@@ -601,6 +601,10 @@ canvas {
   z-index: 20;
 }
 
+.z-30 {
+  z-index: 30;
+}
+
 .-mr-12 {
   margin-right: -3rem;
 }
@@ -856,6 +860,11 @@ canvas {
 .text-zinc-300 {
   --tw-text-opacity: 1;
   color: rgb(212 212 216 / var(--tw-text-opacity));
+}
+
+.text-zinc-950 {
+  --tw-text-opacity: 1;
+  color: rgb(9 9 11 / var(--tw-text-opacity));
 }
 
 .underline {

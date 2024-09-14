@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let mobileFullscreen = false;
 
     function fakeFullscreen() {
-
-
         mobileFullscreen = true;
         canvas.className = "";
         canvas.classList.remove("h-80", "rounded-xl", "border-4", "w-full");
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.height = window.innerHeight * dpr;
     };
 
-    window.addEventListener("resize", () => {
+    window.addEventListener("orientationchange", () => {
         if (mobileFullscreen) {
             resizeCanvas();
         }
